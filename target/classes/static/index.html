@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Frontend Test</title>
+</head>
+<body>
+    <h1>Spring Boot + HTML Demo</h1>
+    <button id="fetchBtn">Fetch Message</button>
+    <p id="message"></p>
+
+    <script>
+        const button = document.getElementById('fetchBtn');
+        const messageDiv = document.getElementById('message');
+
+        button.addEventListener('click', () => {
+            fetch('http://localhost:8080/api/message')
+			//fetch('https://project-1-6-jy84.onrender.com/api/message')
+                .then(response => response.text())
+                .then(data => {
+                    messageDiv.innerText = data;
+                })
+                .catch(err => console.error(err));
+        });
+    </script>
+</body>
+</html>
