@@ -14,13 +14,15 @@
         const messageDiv = document.getElementById('message');
 
         button.addEventListener('click', () => {
-            fetch('http://localhost:8080/api/message')
-			//fetch('https://project-1-6-jy84.onrender.com/api/message')
+            fetch('https://auto-1-86tj.onrender.com/api/message')
                 .then(response => response.text())
                 .then(data => {
                     messageDiv.innerText = data;
                 })
-                .catch(err => console.error(err));
+                .catch(err => {
+                    console.error('Fetch failed:', err);
+                    messageDiv.innerText = "❌ Error fetching message!";
+                });
         });
     </script>
 </body>
