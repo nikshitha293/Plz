@@ -14,7 +14,7 @@
         const messageDiv = document.getElementById('message');
 
         button.addEventListener('click', () => {
-            fetch('https://auto-1-86tj.onrender.com/api/message')
+            fetch('/api/message')
                 .then(response => response.text())
                 .then(data => {
                     messageDiv.innerText = data;
